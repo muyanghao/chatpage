@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <!-- 左侧侧边栏 -->
+  <div class="sidebar">
+    <h2>Chat</h2>
+    <button id="new-chat" class="new-chat-btn">新聊天</button>
+
+    <div id="session-list" class="session-list">
+      <!-- 会话列表由 JS 渲染 -->
+    </div>
+
+    <div class="sidebar-footer">
+      <button id="export" class="export-btn">导出记录</button>
+    </div>
+  </div>
+
+  <!-- 右侧聊天主界面 -->
+  <div class="chat-area">
+    <div id="messages" class="messages"></div>
+
+    <div class="input-box">
+      <!-- 模式选择 + thinking 状态 -->
+      <div class="mode-select-wrapper">
+        <select id="mode-select">
+          <option value="instant">instant</option>
+          <option value="thinking">thinking</option>
+        </select>
+
+        <!-- thinking 状态：三个点 + 文本 + 计时 -->
+        <div id="thinking-status" class="thinking-status hidden">
+          <div class="thinking-dots">
+            <span class="thinking-dot"></span>
+            <span class="thinking-dot"></span>
+            <span class="thinking-dot"></span>
+          </div>
+          <span class="thinking-label">thinking</span>
+          <span class="thinking-timer" id="thinking-timer">0.0s</span>
+        </div>
+      </div>
+
+      <textarea id="input" placeholder="发送消息，按 Enter 发送，Shift+Enter 换行"></textarea>
+      <button id="send">发送</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
